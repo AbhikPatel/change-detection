@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -6,20 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public getData:Subject<any>
+  constructor() { 
+    this.getData = new Subject();
   }
 
-  public data = {counter:1}
+  ngOnInit(): void {
+    this.getData.next(this.data)
+  }
+
+  public data = [
+    {
+      id:1,
+      name:"walk"
+    },
+    {
+      id:2,
+      name:"workout"
+    },
+    {
+      id:3,
+      name:"Read"
+    }
+  ]
 
   public show(){
     console.log('Parent rendered');
     return 'Parent'
   }
 
-  public onAdd(){
-    this.data.counter++;
-    // this.data = {counter: ++this.data.counter}
+  public onChange(){
+    console.log('change text');
   }
 }

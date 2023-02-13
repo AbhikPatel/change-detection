@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -9,15 +9,12 @@ export class ChildComponent implements OnInit {
 
   @Input() public data:any; 
 
-  constructor(
-    private cdr:ChangeDetectorRef
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   public show(){
-    console.log('Children rendered');
-    return 'Counter: ' + this.data.counter
+    console.log('Child rendered');
   }
 }

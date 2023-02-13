@@ -1,3 +1,6 @@
-<h1> {{show()}} </h1>
-<button (click)="onAdd()"> Increment </button>
-<app-child [data]="data"></app-child>
+<div class="p-5">
+    <h1> {{show()}} </h1>
+    <app-child [data]="todo" *ngFor="let todo of data"></app-child>
+    <!-- <input type="text" class="form-control" (keyup)="onChange()"> -->
+    <!-- <button class="btn btn-primary" (click)="onChange()">  Change </button> -->
+</div>
